@@ -50,22 +50,22 @@ function managerQuestions (){
         {
             type: "input",
             message: "What is your Name?",
-            name: "name",
+            name: "managerName",
         },
         {
             type: "input",
             message: "What is your Employee ID?",
-            name: "id",
+            name: "managerID",
         },
         {
             type: "input",
             message: "What is your email address?",
-            name: "email",
+            name: "managerEmail",
         },
         {
             type: "input",
             message: "What is your office number?",
-            name: "offNum",
+            name: "managerOfficeNum",
         }
     ])
     .then( response => {
@@ -78,22 +78,22 @@ function engineerQuestions (){
         {
             type: "input",
             message: "What is your Name?",
-            name: "name",
+            name: "engineerName",
         },
         {
             type: "input",
             message: "What is your Employee ID?",
-            name: "id",
+            name: "engineerID",
         },
         {
             type: "input",
             message: "What is your email address?",
-            name: "email",
+            name: "engineerEmail",
         },
         {
             type: "input",
             message: "What is your Github username?",
-            name: "github",
+            name: "engineerGithub",
         }
     ])
     .then( response => {
@@ -106,25 +106,26 @@ function internQuestions (){
         {
             type: "input",
             message: "What is your Name?",
-            name: "name"
+            name: "internName"
         },
         {
             type: "input",
             message: "What is your Employee ID?",
-            name: "id",
+            name: "internID",
         },
         {
             type: "input",
             message: "What is your email address?",
-            name: "email",
+            name: "internEmail",
         },
         {
             type: "input",
             message: "What school are you attending?",
-            name: "school",
+            name: "internSchool",
         }
     ])
     .then( response => {
+        const intern = new Intern (response.internName, response.internID, response.internEmail, response.internSchool)
         employeeType();
     })
     
