@@ -20,72 +20,75 @@ const render = require("./lib/htmlRenderer");
 function employeeType(){
     inquirer.prompt ([
         {
-            type: list,
+            type: "list",
             message: "What employee type will you be adding?",
-            name: newEmployee,
+            name: "newEmployee",
             choices: ["Manager", "Engineer", "Intern", "Done Adding Employees"]
         }
     ])
     .then( response => {
-        switch ( response.newEmployee){
+        switch ( response.newEmployee ){
             case "Engineer": engineerQuestions();
         break;
             case "Manager": managerQuestions();
         break;
             case "Intern": internQuestions();
         break;
-            renderTeam();
+        
         }
     })
 }
+
+employeeType();
 
 
 function managerQuestions (){
     inquirer.prompt([
         {
-            type: input,
+            type: "input",
             message: "What is your Name?",
-            name: name,
+            name: "name",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your Employee ID?",
-            name: id,
+            name: "id",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your email address?",
-            name: email,
+            name: "email",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your office number?",
-            name: offNum,
+            name: "offNum",
         }
     ])
 }
 
+
 function engineerQuestions (){
     inquirer.prompt([
         {
-            type: input,
+            type: "input",
             message: "What is your Name?",
-            name: name,
+            name: "name",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your Employee ID?",
-            name: id,
+            name: "id",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your email address?",
-            name: email,
+            name: "email",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your Github username?",
-            name: github,
+            name: "github",
         }
     ])
 }
@@ -93,32 +96,32 @@ function engineerQuestions (){
 function internQuestions (){
     inquirer.prompt([
         {
-            type: input,
+            type: "input",
             message: "What is your Name?",
-            name: name
+            name: "name"
         },
         {
-            type: input,
+            type: "input",
             message: "What is your Employee ID?",
-            name: id,
+            name: "id",
         },
         {
-            type: input,
+            type: "input",
             message: "What is your email address?",
-            name: email,
+            name: "email",
         },
         {
-            type: input,
+            type: "input",
             message: "What school are you attending?",
-            name: school,
+            name: "school",
         }
     ])
 }
 
-employeeType();
-// After the user has input all employees desired, call the `render` function (required
+
+// After the user has "input" all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
+// generate and return a block of HTML including templated div for each employee!
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
