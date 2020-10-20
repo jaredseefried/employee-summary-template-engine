@@ -41,8 +41,29 @@ function managerQuestions (){
     ])
 }
 
-function internQuestions(){
-
+function engineerQuestions (){
+    inquirer.prompt([
+        {
+            type: input,
+            message: "What is your Name?",
+            name: engineerName
+        }
+        {
+            type: input,
+            message: "What is your Employee ID?",
+            name: engineerID
+        }
+        {
+            type: input,
+            message: "What is your email address?",
+            name: engineerEmail
+        }
+        {
+            type: input,
+            message: "What is your Github username?",
+            name: engineerGithub
+        }
+    ])
 }
 
 
