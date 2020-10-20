@@ -66,6 +66,32 @@ function engineerQuestions (){
     ])
 }
 
+function internQuestions (){
+    inquirer.prompt([
+        {
+            type: input,
+            message: "What is your Name?",
+            name: internName
+        }
+        {
+            type: input,
+            message: "What is your Employee ID?",
+            name: internID
+        }
+        {
+            type: input,
+            message: "What is your email address?",
+            name: internEmail
+        }
+        {
+            type: input,
+            message: "What school are you attending?",
+            name: internSchool
+        }
+    ])
+}
+
+
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
