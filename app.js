@@ -5,11 +5,12 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+const render = require("./lib/htmlRenderer")
+
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRenderer");
-
+const employees = []
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -17,35 +18,37 @@ const render = require("./lib/htmlRenderer");
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
 
-function employeeType(){
-    inquirer.prompt ([
+function employeeType() {
+    inquirer.prompt([
         {
             type: "list",
             message: "What employee type will you be adding?",
             name: "newEmployee",
-            choices: ["Manager", "Engineer", "Intern", "Done Adding Employees"]
+            choices: ["Manager", "Engineer", "Intern", "Done"]
         }
     ])
-    .then( response => {
-        switch ( response.newEmployee ){
-            case "Engineer": engineerQuestions();
-        break;
-            case "Manager": managerQuestions();
-        break;
-            case "Intern": internQuestions();
-        break;
-            case "Done": //TODO: send information in output file
-
-        }
-        
-    })
-    
+        .then(response => {
+            switch (response.newEmployee) {
+                case "Engineer":
+                    engineerQuestions();
+                    break;
+                case "Manager": 
+                    managerQuestions();
+                    break;
+                case "Intern": 
+                    internQuestions();
+                    break;
+                case "Done": 
+                    // console.log(render(employees));
+                    fs.writeFileSync('employees.html', render(employees))
+            }
+        })
 }
 
 employeeType();
 
 
-function managerQuestions (){
+function managerQuestions() {
     inquirer.prompt([
         {
             type: "input",
@@ -68,12 +71,15 @@ function managerQuestions (){
             name: "managerOfficeNum",
         }
     ])
-    .then( response => {
-        employeeType();
-    })
+        .then(response => {
+            const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.managerOfficeNum)
+            // console.log(manager);
+            employees.push(manager);
+            employeeType();
+        })
 }
 
-function engineerQuestions (){
+function engineerQuestions() {
     inquirer.prompt([
         {
             type: "input",
@@ -96,12 +102,15 @@ function engineerQuestions (){
             name: "engineerGithub",
         }
     ])
-    .then( response => {
-        employeeType();
-    })
+        .then(response => {
+            const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.engineerGithub)
+            // console.log(engineer);
+            employees.push(engineer);
+            employeeType();
+        })
 }
 
-function internQuestions (){
+function internQuestions() {
     inquirer.prompt([
         {
             type: "input",
@@ -124,14 +133,17 @@ function internQuestions (){
             name: "internSchool",
         }
     ])
-    .then( response => {
-        const intern = new Intern (response.internName, response.internID, response.internEmail, response.internSchool)
-        employeeType();
-    })
-    
+        .then(response => {
+            const intern = new Intern(response.internName, response.internID, response.internEmail, response.internSchool)
+            // console.log(intern);
+            employees.push(intern);
+            employeeType();
+        })
+
 }
 
-function outputFile(){
+function outputFile() {
+
 
 }
 
