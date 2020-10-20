@@ -28,11 +28,11 @@ function employeeType(){
     ])
     .then( response => {
         switch ( response.newEmployee){
-            case "Engineer": Engineer();
+            case "Engineer": engineerQuestions();
         break;
-            case "Manager": Manager();
+            case "Manager": managerQuestions();
         break;
-            case "Intern": Intern();
+            case "Intern": internQuestions();
         break;
             renderTeam();
         }
@@ -45,22 +45,22 @@ function managerQuestions (){
         {
             type: input,
             message: "What is your Name?",
-            name: name
-        }
+            name: name,
+        },
         {
             type: input,
             message: "What is your Employee ID?",
-            name: id
-        }
+            name: id,
+        },
         {
             type: input,
             message: "What is your email address?",
-            name: email
-        }
+            name: email,
+        },
         {
             type: input,
             message: "What is your office number?",
-            name: offNum
+            name: offNum,
         }
     ])
 }
@@ -70,22 +70,22 @@ function engineerQuestions (){
         {
             type: input,
             message: "What is your Name?",
-            name: name
-        }
+            name: name,
+        },
         {
             type: input,
             message: "What is your Employee ID?",
-            name: id
-        }
+            name: id,
+        },
         {
             type: input,
             message: "What is your email address?",
-            name: email
-        }
+            name: email,
+        },
         {
             type: input,
             message: "What is your Github username?",
-            name: github
+            name: github,
         }
     ])
 }
@@ -96,25 +96,26 @@ function internQuestions (){
             type: input,
             message: "What is your Name?",
             name: name
-        }
+        },
         {
             type: input,
             message: "What is your Employee ID?",
-            name: id
-        }
+            name: id,
+        },
         {
             type: input,
             message: "What is your email address?",
-            name: email
-        }
+            name: email,
+        },
         {
             type: input,
             message: "What school are you attending?",
-            name: school
+            name: school,
         }
     ])
 }
 
+employeeType();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
