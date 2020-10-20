@@ -16,6 +16,30 @@ const render = require("./lib/htmlRenderer");
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
 // employee type.
+
+function employeeType(){
+    inquirer.prompt ([
+        {
+            type: list,
+            message: "What employee type will you be adding?",
+            name: newEmployee,
+            choices: ["Manager", "Engineer", "Intern", "Done Adding Employees"]
+        }
+    ])
+    .then( response => {
+        switch ( response.newEmployee){
+            case "Engineer": Engineer();
+        break;
+            case "Manager": Manager();
+        break;
+            case "Intern": Intern();
+        break;
+            renderTeam();
+        }
+    })
+}
+
+
 function managerQuestions (){
     inquirer.prompt([
         {
@@ -90,8 +114,6 @@ function internQuestions (){
         }
     ])
 }
-
-
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
