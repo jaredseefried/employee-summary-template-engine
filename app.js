@@ -21,22 +21,22 @@ function managerQuestions (){
         {
             type: input,
             message: "What is your Name?",
-            name: managerName
+            name: name
         }
         {
             type: input,
             message: "What is your Employee ID?",
-            name: managerID
+            name: id
         }
         {
             type: input,
             message: "What is your email address?",
-            name: managerEmail
+            name: email
         }
         {
             type: input,
             message: "What is your office number?",
-            name: managerOffNum
+            name: offNum
         }
     ])
 }
@@ -46,22 +46,22 @@ function engineerQuestions (){
         {
             type: input,
             message: "What is your Name?",
-            name: engineerName
+            name: name
         }
         {
             type: input,
             message: "What is your Employee ID?",
-            name: engineerID
+            name: id
         }
         {
             type: input,
             message: "What is your email address?",
-            name: engineerEmail
+            name: email
         }
         {
             type: input,
             message: "What is your Github username?",
-            name: engineerGithub
+            name: github
         }
     ])
 }
@@ -71,22 +71,22 @@ function internQuestions (){
         {
             type: input,
             message: "What is your Name?",
-            name: internName
+            name: name
         }
         {
             type: input,
             message: "What is your Employee ID?",
-            name: internID
+            name: id
         }
         {
             type: input,
             message: "What is your email address?",
-            name: internEmail
+            name: email
         }
         {
             type: input,
             message: "What school are you attending?",
-            name: internSchool
+            name: school
         }
     ])
 }
