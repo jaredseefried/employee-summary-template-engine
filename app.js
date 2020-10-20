@@ -34,9 +34,12 @@ function employeeType(){
         break;
             case "Intern": internQuestions();
         break;
-        
+            case "Done": //TODO: send information in output file
+
         }
+        
     })
+    
 }
 
 employeeType();
@@ -65,8 +68,10 @@ function managerQuestions (){
             name: "offNum",
         }
     ])
+    .then( response => {
+        employeeType();
+    })
 }
-
 
 function engineerQuestions (){
     inquirer.prompt([
@@ -91,6 +96,9 @@ function engineerQuestions (){
             name: "github",
         }
     ])
+    .then( response => {
+        employeeType();
+    })
 }
 
 function internQuestions (){
@@ -116,6 +124,14 @@ function internQuestions (){
             name: "school",
         }
     ])
+    .then( response => {
+        employeeType();
+    })
+    
+}
+
+function outputFile(){
+
 }
 
 
