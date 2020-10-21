@@ -14,11 +14,14 @@
   
 # Description
   
-Description
+The project is to build a Node CLI (command line interface) that takes in information about employees and generates an HTML webpage that displays summaries for each person. This is a test drive development project. There are .test.js files where we run Node Package Jest the ensure all testing passes and the code is maintained to meet those tests. 
   
 # Installation Requirements
   
-Jest, Inquierer
+npm install package.json dependencies. 
+
+- Jest
+- Inquirer
   
 # Usage
   
@@ -34,14 +37,15 @@ NA
   
 # Tests
   
-Run test.js files in ./testing folder
+npm test files in ./test folder
   
-# Questions
+## Have Questions?
+---
 
     
-## [Github Profile: github.com/jaredseefried](https://github.com/jaredseefried "Title")
+- [Github Profile: github.com/jaredseefried](https://github.com/jaredseefried "Title")
 
-Please email me at jared.seefried@yahoo.com if you have additional questions. 
+- Please email me at jared.seefried@yahoo.com if you have additional questions. 
   
-### Image of Employee Summary Template Engine
+-Image of Employee Summary Template Engine
 ![alt text](./)
