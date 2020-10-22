@@ -40,7 +40,7 @@ function employeeType() {
                     internQuestions();
                     break;
                 case "Done": // Once the user is done adding employees, when selecting 'Done' in the above Inquirer prompt, will write the file of all employees entered.
-                    fs.writeFileSync('./GenerateHTML/employees.html', render(employees))
+                    fs.writeFileSync('./generateHTML/employees.html', render(employees))
             }
         })
 }
