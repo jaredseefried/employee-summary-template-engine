@@ -1,6 +1,6 @@
 # Employee Summary Template Engine
 
-![Employee Summary template Engine](.\assets\EmployeeSummaryTemplateEngineVid.gif)
+![Employee Summary Template Engine](./assets/EmployeeSummaryTemplateEngineVid.gif)
 
 ---
 ### [Dropbox Link to Video](https://www.dropbox.com/s/jyxyn9gkcpmzg8q/EmployeeSummaryTemplateEngineVideo.mp4?dl=0)
