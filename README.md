@@ -1,7 +1,12 @@
-
-  
 # Employee Summary Template Engine
-  
+
+![Employee Summary template Engine](.\assets\EmployeeSummaryTemplateEngineVid.gif)
+
+---
+### [Dropbox Link to Video](https://www.dropbox.com/s/jyxyn9gkcpmzg8q/EmployeeSummaryTemplateEngineVideo.mp4?dl=0)
+
+---
+
 ## Table of Contents
 
   * **[Description](#Description)**  
@@ -15,6 +20,8 @@
 # Description
   
 The project is to build a Node CLI (command line interface) that takes in information about employees and generates an HTML webpage that displays summaries for each person. This is a test drive development project. There are .test.js files where we run Node Package Jest the ensure all testing passes and the code is maintained to meet those tests. 
+
+
   
 # Installation Requirements
   
@@ -47,5 +54,3 @@ npm test files in ./test folder
 
 - Please email me at jared.seefried@yahoo.com if you have additional questions. 
   
--Image of Employee Summary Template Engine
-![alt text](./)

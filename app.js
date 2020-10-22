@@ -1,23 +1,22 @@
+// Require Classes
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
+// Require Inquirer node package
 const inquirer = require("inquirer");
+
+//Require FS and Path to create file
 const path = require("path");
 const fs = require("fs");
 
+// Require the HTML Renderer JS File
 const render = require("./lib/htmlRenderer")
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
-
+// Empty employees array to new Employee objects to 
 const employees = []
 
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
+// EmployeeType function will determine which type of employee will be selected 
 function employeeType() {
     inquirer.prompt([
         {
@@ -27,7 +26,9 @@ function employeeType() {
             choices: ["Manager", "Engineer", "Intern", "Done"]
         }
     ])
+        // Then > based on the response... 
         .then(response => {
+            // A switch/case statement to determine which set of questions will be asked.
             switch (response.newEmployee) {
                 case "Engineer":
                     engineerQuestions();
@@ -38,16 +39,16 @@ function employeeType() {
                 case "Intern": 
                     internQuestions();
                     break;
-                case "Done": 
-                    // console.log(render(employees));
-                    fs.writeFileSync('employees.html', render(employees))
+                case "Done": // Once the user is done adding employees, when selecting 'Done' in the above Inquirer prompt, will write the file of all employees entered.
+                    fs.writeFileSync('./GenerateHTML/employees.html', render(employees))
             }
         })
 }
 
+// Call EmployeeType function
 employeeType();
 
-
+// The questions asked when Manager employeeType is selected
 function managerQuestions() {
     inquirer.prompt([
         {
@@ -71,14 +72,18 @@ function managerQuestions() {
             name: "managerOfficeNum",
         }
     ])
+        // Then > Take the responses
         .then(response => {
+            // Create a new Manager Object
             const manager = new Manager(response.managerName, response.managerID, response.managerEmail, response.managerOfficeNum)
-            // console.log(manager);
+            // Push the new manager object to the employees array
             employees.push(manager);
+            // Go back to Employee Type question
             employeeType();
         })
 }
 
+// Questions to ask the Engineer employee type
 function engineerQuestions() {
     inquirer.prompt([
         {
@@ -101,15 +106,19 @@ function engineerQuestions() {
             message: "What is your Github username?",
             name: "engineerGithub",
         }
-    ])
+    ])  
+        // Then > take those responses
         .then(response => {
+            //Create a new Engineer object
             const engineer = new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.engineerGithub)
-            // console.log(engineer);
+            // Push the new Engineer to the employees array
             employees.push(engineer);
+            // Go back to Employee Type Question
             employeeType();
         })
 }
 
+// Questions to ask an Intern Employee type 
 function internQuestions() {
     inquirer.prompt([
         {
@@ -133,36 +142,13 @@ function internQuestions() {
             name: "internSchool",
         }
     ])
+        //Then > take those responses
         .then(response => {
+            // Create a new Intern object
             const intern = new Intern(response.internName, response.internID, response.internEmail, response.internSchool)
-            // console.log(intern);
+            // Push the new Intern to the employees Object
             employees.push(intern);
+            // Go back to the employee type question
             employeeType();
         })
-
 }
-
-function outputFile() {
-
-
-}
-
-
-// After the user has "input" all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated div for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
